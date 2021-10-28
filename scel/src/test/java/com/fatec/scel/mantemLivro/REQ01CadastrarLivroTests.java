@@ -32,7 +32,7 @@ class REQ01CadastrarLivroTests {
 		// Quando – o atendente cadastra um livro com informações validas
 		repository.save(livro);
 		// Então – o sistema verifica os dados E permite a consulta do livro
-		assertEquals(3, repository.count());
+		assertEquals(1, repository.count());
 	}
 	@Test
 	void ct02_quando_dados_invalidos_violacoes_retorna_true() {

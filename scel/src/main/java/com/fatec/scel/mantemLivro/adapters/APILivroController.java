@@ -74,7 +74,7 @@ public class APILivroController {
 			response = ResponseEntity.status(HttpStatus.OK).body(optLivro.get());
 		}
 		else {
-			response = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+			response = ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
 		return response;
 	}

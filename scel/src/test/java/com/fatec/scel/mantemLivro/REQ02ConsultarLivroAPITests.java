@@ -88,6 +88,17 @@ class REQ02ConsultarLivroAPITests {
 			assertEquals("200 OK", resposta.getStatusCode().toString());
 			assertTrue(re.equals(ro));
 	}
+	@Test
+	public void ct04_quando_consulta_isbn_nao_cadastrado_retorna_not_found() throws Exception {
+		// Dado - que existem dois registros no banco de dados
+		// Quando - o usuario consulta isbn nao cadastrado
+		String isbn = "3333";
+		ResponseEntity<Livro> resposta = testRestTemplate.getForEntity("/api/v1/livros/" + isbn, Livro.class);
+			Optional<Livro> ro = Optional.ofNullable(resposta.getBody());
+		// Entao - retorna not found
+		assertEquals("404 NOT_FOUND", resposta.getStatusCode().toString());
+		assertFalse(ro.isPresent());
+	}
 
 
 }
