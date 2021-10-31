@@ -51,19 +51,7 @@ public class APILivroController {
 	logger.info(">>>>>> 1. controller chamou servico consulta todos");
 	return servico.consultaTodos();
 	}
-//	@GetMapping("/{id}")
-//	public ResponseEntity<Livro> findById(@PathVariable long id) {
-//		logger.info(">>>>>> 1. controller chamou servico consulta por id => " + id );
-//		ResponseEntity<Livro> response = null;
-//		Optional<Livro> livro = servico.consultaPorId(id);
-//		if (livro.isPresent()) {
-//			response = ResponseEntity.status(HttpStatus.OK).body(livro.get());
-//		}
-//		else {
-//			response = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-//		}
-//		return response;
-//	}
+
 	@GetMapping("/{isbn}")
 	public ResponseEntity<Livro> findByIsbn(@PathVariable String isbn) {
 		logger.info(">>>>>> 1. controller chamou servico consulta por isbn => " + isbn );
